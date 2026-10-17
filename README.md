@@ -42,3 +42,9 @@ To connect after the audit:
 - `/dev/staff` only works in sample mode; remove or protect it before production.
 - The live site's heading font "Perfectly Nineties" isn't loaded anywhere (it falls back to Georgia there too). Add the font file if Bree has a licence.
 - Power Session booking is a "request a time" flow; the live calendar (Easy Appointment Booking on Shopify) needs a replacement or a link.
+
+## Live Shopify data migration (audit in progress)
+
+The Shopify member portal is **still live**. The Vercel frontend is **not yet connected to real student records**, and the current sample login is not a production student login. The production Staff Portal Supabase database and isolated staging snapshot were inventoried on 2026-10-17; do not switch to the live data source until identity links, RLS, storage access, Stripe gating and reconciliation are verified.
+
+See [Shopify-to-Vercel migration readiness](docs/shopify-to-vercel-migration-readiness.md) and the separate read-only audits in `scripts/audit-live-data.sql` / `scripts/audit-staging-snapshot.sql`. Nothing in this branch should be used to replace the live Shopify portal or publish real student records.
